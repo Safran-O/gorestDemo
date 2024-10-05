@@ -25,10 +25,8 @@ public class GetUsersID {
         Assert.assertEquals(statusCode,200);
 
         List<Integer> ids = response.jsonPath().getList("data.id");
-        assertThat(ids, everyItem(notNullValue()));  // No id should be null
+        assertThat(ids, everyItem(notNullValue()));
         assertThat(ids, everyItem(greaterThanOrEqualTo(1000000)));
         assertThat(ids, everyItem(lessThanOrEqualTo(9999999)));
-
-
     }
 }
